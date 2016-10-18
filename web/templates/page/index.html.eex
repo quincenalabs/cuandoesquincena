@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h2>¿Hoy es Quincena?</h2>
+
+
+  <%= if @calculator.today do %>
+  <h1>SI!</h1>
+  <% end %>
+
+  <div id="countdown">
+  </div>
+  <div class="loader-inner ball-pulse"></div>
+</div>
