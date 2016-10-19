@@ -9,7 +9,6 @@
 
     <title>Hello Cuandoesquincena!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/soon.min.css") %>">
   </head>
 
   <body>
