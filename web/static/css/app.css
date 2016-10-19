@@ -1,1 +1,14 @@
 /* This file is for your main application css. */
+
+body{    background-color: #eee; }
+
+
+
+.disclamer{
+    font-size: 10px;
+}
+
+#my-soon-counter .soon-reflection {background-color:#5a566b;background-image:linear-gradient(#5a566b 25%,rgba(90,86,107,0));}
+#my-soon-counter {background-position:top;}
+#my-soon-counter {color:#000000;color:rgba(0,0,0,0.25);}
+#my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;}

@@ -19,7 +19,7 @@ defmodule Cuandoesquincena.Mixfile do
   def application do
     [mod: {Cuandoesquincena, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-		    :phoenix_ecto, :postgrex, :tzdata]]
+		    :phoenix_ecto, :postgrex, :tzdata, :timex, :phoenix_live_reload]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,11 +36,12 @@ defmodule Cuandoesquincena.Mixfile do
       {:phoenix_ecto, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_live_reload, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:tzdata, "~> 0.5.7", override: true},
       {:timex, "~> 3.0"},
+      {:exrm, "~> 1.0"},
     ]
   end
 

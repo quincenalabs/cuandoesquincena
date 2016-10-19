@@ -13,7 +13,7 @@
 // to also remove its path from "config.paths.watched".
 
 import "phoenix_html";
-import clock from './clock';
+
 
 // Import local files
 //
@@ -21,5 +21,3 @@ import clock from './clock';
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-
-(() => clock())();

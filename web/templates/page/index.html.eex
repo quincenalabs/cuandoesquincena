@@ -1,12 +1,31 @@
 <div class="jumbotron">
   <h2>¿Hoy es Quincena?</h2>
 
-
   <%= if @calculator.today do %>
   <h1>SI!</h1>
-  <% end %>
+  <% else %>
+  <h1>Nooo!</h1>
+  <%end%>
 
-  <div id="countdown">
+  <script type="text/javascript">
+    WebFontConfig={google:{families:['Oswald']}};(function(){var wf=document.createElement('script');wf.src=('https:'==document.location.protocol?'https':'http')+'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('head')[0];s.appendChild(wf);})()
+  </script>
+  <style type="text/css">
+  </style>
+
+
+  <div class="soon" id="my-soon-counter"
+       data-due="<%= @calculator.next_paydate %>"
+       data-layout="inline label-uppercase"
+       data-format="w,d,h,m,s"
+       data-labels-days="dias"
+       data-labels-hours="hoars"
+       data-labels-minutes="minutos"
+       data-labels-seconds="segundos"
+       data-labels-weeks="semanas"
+       data-face="flip color-light shadow-soft fast corners-round">
   </div>
-  <div class="loader-inner ball-pulse"></div>
+  <div class="row disclamer">
+    made with 🍻 at softwarebrewering Co. developer-cruelty free page
+  </div>
 </div>

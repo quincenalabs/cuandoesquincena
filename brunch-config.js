@@ -7,8 +7,6 @@ exports.config = {
       // To change the order of concatenation of files, explicitly mention here
       order: {
 	before: [
-	  "web/static/vendor/js/jquery-3.1.1.min.js",
-	  "web/static/vendor/js/jquery.countdown.min.js",
 	]
       }
     },
