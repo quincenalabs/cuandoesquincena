@@ -2,16 +2,34 @@ FROM elixir:1.3.2
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MIX_ENV=prod
 ENV PORT=80
-RUN mix local.hex --force
-RUN mix local.rebar --force
-RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-    RUN apt-get install -y -q nodejs
-WORKDIR /app
-ADD . /app
 
+# Compile app
+RUN mkdir /app
+WORKDIR /app
+
+# Install Elixir Deps
+ADD mix.* ./
+RUN MIX_ENV=prod mix local.rebar
+RUN MIX_ENV=prod mix local.hex --force
 RUN MIX_ENV=prod mix deps.get
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y -q nodejs
+
+# Install Node Deps
+ADD package.json ./
 RUN npm install
-RUN ./node_modules/brunch/bin/brunch  build --production
-RUN MIX_ENV=prod mix phoenix.digest
+
+# Install app
+ADD .
 RUN MIX_ENV=prod mix compile
+
+# Compile assets
+RUN NODE_ENV=production node_modules/brunch/bin/brunch build --production
+RUN MIX_ENV=prod mix phoenix.digest
+
+# Exposes this port from the docker container to the host machine
+EXPOSE 4000
+
+# The command to run when this image starts up
+RUN MIX_ENV=prod mix phoenix.server
