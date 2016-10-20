@@ -21,7 +21,7 @@ ADD package.json ./
 RUN npm install
 
 # Install app
-ADD .
+ADD . ./
 RUN MIX_ENV=prod mix compile
 
 # Compile assets
@@ -32,4 +32,4 @@ RUN MIX_ENV=prod mix phoenix.digest
 EXPOSE 4000
 
 # The command to run when this image starts up
-RUN MIX_ENV=prod mix phoenix.server
+CMD MIX_ENV=prod mix phoenix.server
