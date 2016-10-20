@@ -35,7 +35,7 @@ services:
       - NGINX_DOCKER_GEN_CONTAINER=nginx-gen
 
   cuandoesquincena:
-    image: nginx
+    image: netmask/cuandoesquincena
     container_name: quincenasite
     volumes:
       - "/app/volumes/conf.d/:/etc/nginx/conf.d"
