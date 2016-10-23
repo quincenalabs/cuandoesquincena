@@ -52,6 +52,7 @@ defmodule Cuandoesquincena.Web do
       import Cuandoesquincena.Router.Helpers
       import Cuandoesquincena.ErrorHelpers
       import Cuandoesquincena.Gettext
+      import Cuandoesquincena.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 

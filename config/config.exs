@@ -15,13 +15,26 @@ config :cuandoesquincena, Cuandoesquincena.Endpoint,
   secret_key_base: "nfjz7WMWI1avXk3Q0URGMd8gcNtQpc/ZV4P4bOkquTYTz877z/b8JlCvdwWeoZyr",
   render_errors: [view: Cuandoesquincena.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Cuandoesquincena.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+	   adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Import environment specific config. This must remain at the bottom
+
+config :ex_admin,
+  repo: Cuandoesquincena.Repo,
+  module: Cuandoesquincena,
+  modules: [
+    Cuandoesquincena.ExAdmin.Dashboard,
+    Cuandoesquincena.ExAdmin.SillyMessage,
+    Cuandoesquincena.ExAdmin.User
+  ]
+
+
+# IMPORT environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :xain, :after_callback, {Phoenix.HTML, :raw}

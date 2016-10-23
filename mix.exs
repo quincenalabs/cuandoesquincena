@@ -42,6 +42,8 @@ defmodule Cuandoesquincena.Mixfile do
       {:tzdata, "~> 0.5.7", override: true},
       {:timex, "~> 3.0"},
       {:exrm, "~> 1.0"},
+      {:comeonin, "~> 1.0"},
+      {:ex_admin, github: "smpallen99/ex_admin"}
     ]
   end
 
