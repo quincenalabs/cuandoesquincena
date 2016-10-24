@@ -14,7 +14,7 @@ RUN MIX_ENV=prod mix local.hex --force
 RUN MIX_ENV=prod mix deps.get
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y -q nodejs
+RUN apt-get install -y -q nodejs bcrypt
 
 # Install Node Deps
 ADD package.json ./

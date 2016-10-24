@@ -18,8 +18,8 @@
        data-due="<%= @calculator.next_paydate %>"
        data-layout="inline label-uppercase"
        data-format="w,d,h,m,s"
-       data-labels-days="dias"
-       data-labels-hours="hoars"
+       data-labels-days="días"
+       data-labels-hours="horas"
        data-labels-minutes="minutos"
        data-labels-seconds="segundos"
        data-labels-weeks="semanas"
@@ -27,6 +27,6 @@
   </div>
 
   <div class="row disclamer">
-    made with 🍻 and 💜 at <a href="quincenalabs.com">quincenalabs</a>. this page are 100% organic and gluten/GMO/Transgenic free
+    made with 🍻 and 💜 at <a href="http://quincenalabs.com">quincenalabs</a>. this page are 100% organic and gluten/GMO/Transgenic free
   </div>
 </div>
