@@ -1,8 +1,26 @@
 /* This file is for your main application css. */
 
-body{    background-color: #eee; }
+body{
+    background-color: #eee;
+    font-family: 'Oswald', sans-serif;
+}
+
+.next-date{
+
+background-color: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
 
 
+.mock{
+    font-size: 120px !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .disclamer{
     font-size: 10px;
