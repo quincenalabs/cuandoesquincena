@@ -30,3 +30,19 @@ background-color: #666666;
 #my-soon-counter {background-position:top;}
 #my-soon-counter {color:#000000;color:rgba(0,0,0,0.25);}
 #my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;}
+
+
+.silly-message{
+    font-size:72px;
+}
+
+.jumbotron{
+    padding-top: 0 !important;
+}
+
+@media screen and (min-width: 768px)
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+
+}

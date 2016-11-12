@@ -2,16 +2,14 @@
   <h2>¿Hoy es Quincena?</h2>
 
   <%= if @calculator.today do %>
-  <h1 class="mock">¡SI!</h1>
+  <h1 class="mock animated wobble">¡SI!</h1>
   <% else %>
-  <h1 class="mock">¡No!</h1>
+  <h1 class="mock animated wobble">¡No!</h1>
+  <div class="silly-message" id="silly-message">silly me</div>
   <h4>La siguiente quincena es:</h4>
   <h1 class="next-date"><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %> </h1>
   <%end%>
 
-  <script type="text/javascript">
-    WebFontConfig={google:{families:['Oswald']}};(function(){var wf=document.createElement('script');wf.src=('https:'==document.location.protocol?'https':'http')+'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('head')[0];s.appendChild(wf);})()
-  </script>
   <style type="text/css">
   </style>
 
@@ -32,3 +30,8 @@
     made with 🍻 and 💜 at <a href="http://quincenalabs.com">quincenalabs</a>. this page are 100% organic and gluten/GMO free
   </div>
 </div>
+
+
+<script type="text/javascript">
+  WebFontConfig={google:{families:['Oswald']}};(function(){var wf=document.createElement('script');wf.src=('https:'==document.location.protocol?'https':'http')+'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('head')[0];s.appendChild(wf);})()
+</script>

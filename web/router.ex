@@ -28,6 +28,7 @@ defmodule Cuandoesquincena.Router do
 
     get "/", PageController, :index
     resources "/silly_messages", SillyMessageController, except: [:new, :edit]
+    get "/silly", SillyMessageController, :rand
     get    "/login",  SessionController, :new
     post   "/login",  SessionController, :create
   end
