@@ -6,7 +6,7 @@ defmodule Cuandoesquincena.Calculator do
   @weekend_start_at 6
 
   def is_today? do
-    Timex.today == next_real_paydate
+    Timex.today == past_real_paydate
   end
 
   def days_until, do: div seconds_until, @seconds_in_day
