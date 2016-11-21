@@ -23,6 +23,13 @@ config :logger, :console,
   metadata: [:request_id]
 
 
+config :logger,
+  backends: [Rollbax.Logger]
+
+# We configure the Rollbax.Logger backend.
+config :logger, Rollbax.Logger,
+  level: :error
+
 config :ex_admin,
   repo: Cuandoesquincena.Repo,
   module: Cuandoesquincena,
@@ -36,5 +43,9 @@ config :ex_admin,
 # IMPORT environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :rollbax,
+  access_token: "b1c0c60e4aef43e4a9bdefe521ba18b7",
+  environment: "production"
 
 config :xain, :after_callback, {Phoenix.HTML, :raw}

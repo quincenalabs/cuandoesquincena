@@ -7,14 +7,15 @@ ENV PORT=80
 RUN mkdir /app
 WORKDIR /app
 
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y -q nodejs bcrypt
+
 # Install Elixir Deps
 ADD mix.* ./
 RUN MIX_ENV=prod mix local.rebar
 RUN MIX_ENV=prod mix local.hex --force
 RUN MIX_ENV=prod mix deps.get
-
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y -q nodejs bcrypt
 
 # Install Node Deps
 ADD package.json ./
