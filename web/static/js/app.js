@@ -49,6 +49,6 @@ function pollMessage() {
 }
 
 
-setInterval(pollMessage, 5000);
+setInterval(pollMessage, 10000);
 
 pollMessage();
