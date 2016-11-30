@@ -46,3 +46,26 @@ background-color: #666666;
     padding-left: 60px;
 
 }
+
+#godinez-wall {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+    background-color: #FFF;
+ }
+
+.message-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 25px;
+}
+
+.approved {
+    background-color: green;
+}

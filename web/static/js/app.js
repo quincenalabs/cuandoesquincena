@@ -13,7 +13,8 @@
 // to also remove its path from "config.paths.watched".
 
 import "phoenix_html";
-
+import "./silly";
+import "./godinez";
 
 // Import local files
 //
@@ -21,34 +22,3 @@ import "phoenix_html";
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-
-
-let message = document.getElementById("silly-message");
-
-function pollMessage() {
-  var xmlhttp = new XMLHttpRequest();
-
-  message.className = `silly-message animated fadeOut`;
-
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-      if (xmlhttp.status == 200) {
-	let payload = JSON.parse(xmlhttp.responseText);
-
-
-	setTimeout(function(){
-	  message.className = `silly-message animated fadeIn`;
-	  message.innerText = payload.data.message;
-	}, 1000);
-      }
-    }
-  };
-
-  xmlhttp.open("GET", "/silly", true);
-  xmlhttp.send();
-}
-
-
-setInterval(pollMessage, 10000);
-
-pollMessage();

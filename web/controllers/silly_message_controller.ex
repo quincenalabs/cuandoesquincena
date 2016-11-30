@@ -35,27 +35,4 @@ defmodule Cuandoesquincena.SillyMessageController do
     render(conn, "show.json", silly_message: silly_message)
   end
 
-  def update(conn, %{"id" => id, "silly_message" => silly_message_params}) do
-    silly_message = Repo.get!(SillyMessage, id)
-    changeset = SillyMessage.changeset(silly_message, silly_message_params)
-
-    case Repo.update(changeset) do
-      {:ok, silly_message} ->
-	render(conn, "show.json", silly_message: silly_message)
-      {:error, changeset} ->
-	conn
-	|> put_status(:unprocessable_entity)
-	|> render(Cuandoesquincena.ChangesetView, "error.json", changeset: changeset)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    silly_message = Repo.get!(SillyMessage, id)
-
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
-    Repo.delete!(silly_message)
-
-    send_resp(conn, :no_content, "")
-  end
 end

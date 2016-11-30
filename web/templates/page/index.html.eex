@@ -4,8 +4,13 @@
   <%= if @calculator.today do %>
     <h1 class="mock animated wobble">¡SI!</h1>
   <% else %>
-    <h1 class="mock animated wobble">¡No!</h1>
+  <h1 class="mock animated wobble">¡No!</h1>
+  <div class="funny-section">
+    <button type="button" class="btn btn-primary godinez-button">Godniez-feed®</button>
     <div class="silly-message" id="silly-message">silly me</div>
+  </div>
+    <span class="fa fa-plus" aria-hidden="true">+</span>
+
     <h4>La siguiente quincena es:</h4>
     <h1 class="next-date"><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %> </h1>
   <%end%>
@@ -28,5 +33,18 @@
 
   <div class="row disclamer">
     made with 🍻 and 💜 at <a href="http://quincenalabs.com">quincenalabs</a>. this page are 100% organic and gluten/GMO free
+  </div>
+</div>
+
+<div id="godinez-wall" state="closed">
+  <div class="container">
+    <div class="row">
+      <button type="button" class="btn btn-primary godinez-button">Godniez-feed®</button>
+    </div>
+
+    <div id="godinez-app" class="container">
+    </div>
+
+
   </div>
 </div>

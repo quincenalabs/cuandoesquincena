@@ -16,8 +16,8 @@ defmodule Cuandoesquincena.SillyMessage do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:message, :votes, :approved])
-    |> validate_required([:message, :votes, :approved])
+    |> cast(params, [:message])
+    |> validate_required([:message])
   end
 
   defmodule Queries do
