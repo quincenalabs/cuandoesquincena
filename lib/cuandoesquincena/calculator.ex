@@ -26,7 +26,15 @@ defmodule Cuandoesquincena.Calculator do
     do: Timex.beginning_of_month(canonical)
 
   def last_canonical_paydate(%Date{day: day, month: month} = canonical) when day < 15,
-    do: Timex.end_of_month(%{canonical | month: month - 1} )
+    do: fix_year(canonical) |> Timex.end_of_month
+
+  def fix_year(%Date{day: day, month: month, year: year} = payday) when month == 1 do
+    %{payday | year: year - 1, month: 12}
+  end
+
+  def fix_year(%Date{day: day, month: month, year: year} = payday) when month > 1 do
+    %{payday | month: month - 1}
+  end
 
   def next_real_paydate do
     Timex.today |> next_canonical_payday_from_today |> fix_workday
@@ -41,7 +49,10 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def next_canonical_payday_from_today(%Date{year: year, month: month, day: day} = payday)
-     when day >= 15, do:  %{payday | day: :calendar.last_day_of_the_month(year, month)}
+  when day >= 15 do
+    %{payday | day: :calendar.last_day_of_the_month(year, month) }
+  end
+
   def next_canonical_payday_from_today(payday), do: %{payday | day: 15}
 
   def weekend(wday, day) when wday == 7, do: day - 2
