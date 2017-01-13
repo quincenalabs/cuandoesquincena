@@ -4,6 +4,8 @@ defmodule Cuandoesquincena.Calculator do
   @seconds_in_day 86400
   #the weekend starts at the sat(6)
   @weekend_start_at 6
+  # more or less days that paypal takes to move your money to the bank account IN MEXICO
+  @average_paypal_delay 3
 
   def is_today? do
     seconds_until <= 0
@@ -19,7 +21,8 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def seconds_until do
-    next_real_paydate |> Timex.to_datetime |> Timex.diff(Timex.now, :seconds)
+    next_date = next_real_paydate |> Timex.to_datetime
+    Timex.diff(Timex.local, next_date,  :seconds)
   end
 
   def last_canonical_paydate(%Date{day: day} = canonical) when day >= 15,
@@ -37,12 +40,19 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def next_real_paydate do
-    Timex.today |> next_canonical_payday_from_today |> fix_workday
+    today |> next_canonical_payday_from_today |> fix_workday
+  end
+
+  def next_paypal_paydate do
+    %Date{day: day, month: month, year: year} = next_real_paydate
+    %Date{day: day - @average_paypal_delay, month: month, year: year}
   end
 
   def past_real_paydate do
-    Timex.today |> last_canonical_paydate |> next_canonical_payday_from_today |> fix_workday
+    today |> last_canonical_paydate |> next_canonical_payday_from_today |> fix_workday
   end
+
+  def today, do: Timex.local |> Timex.to_date
 
   def fix_workday(%Date{day: day} = canonical) do
     %{canonical | day: Timex.weekday(canonical) |> weekend(day) }

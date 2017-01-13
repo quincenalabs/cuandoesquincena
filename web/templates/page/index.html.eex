@@ -16,6 +16,7 @@
 
   <div class="soon" id="my-soon-counter"
        data-due="<%= @calculator.next_paydate %>"
+       data-since="<%= @calculator.current_date %>"
        data-layout="inline label-uppercase"
        data-format="w,d,h,m,s"
        data-labels-days="días"
