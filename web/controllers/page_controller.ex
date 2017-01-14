@@ -21,7 +21,8 @@ defmodule Cuandoesquincena.PageController do
       days_until: cal.days_until,
       current_date: cal.today,
       weekends: cal.weekends,
-      next_paypal: cal.next_paypal_paydate
+      next_paypal: cal.next_paypal_paydate,
+      next_canonical: cal.today |> cal.next_canonical_payday_from_today
     }
   end
 end

@@ -8,7 +8,7 @@ defmodule Cuandoesquincena.Calculator do
   @average_paypal_delay 3
 
   def is_today? do
-    seconds_until <= 0
+    days_until == 0
   end
 
   def days_until, do: div seconds_until, @seconds_in_day
@@ -21,8 +21,7 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def seconds_until do
-    next_date = next_real_paydate |> Timex.to_datetime
-    Timex.diff(Timex.local, next_date,  :seconds)
+     next_real_paydate |> Timex.to_datetime |> Timex.diff(Timex.local,  :seconds)
   end
 
   def last_canonical_paydate(%Date{day: day} = canonical) when day >= 15,
@@ -40,7 +39,14 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def next_real_paydate do
-    today |> next_canonical_payday_from_today |> fix_workday
+    %Date{year: year, month: month, day: day} = next_date = today |> next_canonical_payday_from_today |> fix_workday
+    %Date{day: tday} = today
+
+    if tday > day do
+      next_canonical_payday_from_today(%{next_date | day: 16}) |> fix_workday
+    else
+      next_date
+    end
   end
 
   def next_paypal_paydate do
@@ -49,7 +55,14 @@ defmodule Cuandoesquincena.Calculator do
   end
 
   def past_real_paydate do
-    today |> last_canonical_paydate |> next_canonical_payday_from_today |> fix_workday
+    %Date{year: year, month: month, day: day} = next_date = today |> next_canonical_payday_from_today |> fix_workday
+    %Date{day: tday} = today
+
+    if tday > day do
+      last_canonical_paydate(%{next_date | day: 16}) |> next_canonical_payday_from_today |> fix_workday
+    else
+      today |> last_canonical_paydate |> next_canonical_payday_from_today |> fix_workday
+    end
   end
 
   def today, do: Timex.local |> Timex.to_date
@@ -63,7 +76,10 @@ defmodule Cuandoesquincena.Calculator do
     %{payday | day: :calendar.last_day_of_the_month(year, month) }
   end
 
-  def next_canonical_payday_from_today(payday), do: %{payday | day: 15}
+  def next_canonical_payday_from_today(payday) do
+    %{payday | day: 15}
+  end
+
 
   def weekend(wday, day) when wday == 7, do: day - 2
   def weekend(wday, day) when wday == 6, do: day - 1
