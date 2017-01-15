@@ -27,6 +27,7 @@ defmodule Cuandoesquincena.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/paypal", PageController, :index
     resources "/silly_messages", SillyMessageController, except: [:new, :edit]
     get "/silly", SillyMessageController, :rand
     get    "/login",  SessionController, :new

@@ -1,0 +1,29 @@
+<h2>¿Hoy pagan por PayPal?</h2>
+
+<%= if @calculator.today do %>
+  <h1 class="mock animated wobble">¡SI!</h1>
+<% else %>
+  <h1 class="mock animated wobble">¡No!</h1>
+  <div class="silly-message" id="silly-message">silly me</div>
+  <div>La siguiente quincena es el <u><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %></u>
+    PayPal tarda entre <u>4 ~ 5</u> días en transferir tu dinero, así que te tienen que depositar a tu cuenta el día</div>
+
+
+  <h2 class="next-date"><%= @calculator.next_paypal |> Timex.format!("{D}/{0M}/{YYYY}") %> </h2>
+<%end%>
+
+<style type="text/css">
+</style>
+
+
+<div class="soon" id="my-soon-counter"
+     data-due="<%= @calculator.next_paypal %>"
+     data-layout="inline label-uppercase"
+     data-format="w,d,h,m,s"
+     data-labels-days="días"
+     data-labels-hours="horas"
+     data-labels-minutes="minutos"
+     data-labels-seconds="segundos"
+     data-labels-weeks="semanas"
+     data-face="flip color-light shadow-soft fast corners-round">
+</div>

@@ -3,7 +3,7 @@ defmodule Cuandoesquincena.PageController do
   use Timex
 
   def index(conn, _params) do
-    render conn, "index.html", calculator: calculator_data
+    render conn, "index.html", calculator: calculator_data, request_path: conn.request_path
   end
 
   def api(conn, _params) do

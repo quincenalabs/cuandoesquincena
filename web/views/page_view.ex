@@ -4,4 +4,7 @@ defmodule Cuandoesquincena.PageView do
   def today?(calculator) do
     calculator.is_today?
   end
+
+  def paypal?(path), do: String.contains?(path, "paypal")
+
 end

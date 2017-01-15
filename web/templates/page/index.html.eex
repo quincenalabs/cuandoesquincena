@@ -1,30 +1,10 @@
 <div class="jumbotron">
-  <h2>¿Hoy es Quincena?</h2>
 
-  <%= if @calculator.today do %>
-    <h1 class="mock animated wobble">¡SI!</h1>
+  <%= if paypal?(@request_path) do %>
+    <%= render "_paypal.html", calculator: @calculator %>
   <% else %>
-    <h1 class="mock animated wobble">¡No!</h1>
-    <div class="silly-message" id="silly-message">silly me</div>
-    <h4>La siguiente quincena es:</h4>
-    <h1 class="next-date"><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %> </h1>
+    <%= render "_normal.html", calculator: @calculator %>
   <%end%>
-
-  <style type="text/css">
-  </style>
-
-
-  <div class="soon" id="my-soon-counter"
-       data-due="<%= @calculator.next_paydate %>"
-       data-layout="inline label-uppercase"
-       data-format="w,d,h,m,s"
-       data-labels-days="días"
-       data-labels-hours="horas"
-       data-labels-minutes="minutos"
-       data-labels-seconds="segundos"
-       data-labels-weeks="semanas"
-       data-face="flip color-light shadow-soft fast corners-round">
-  </div>
 
   <div class="row disclamer">
     made with 🍻 and 💜 at <a href="http://quincenalabs.com">quincenalabs</a>. this page are 100% organic and gluten/GMO free
