@@ -15,6 +15,7 @@ defmodule Cuandoesquincena.PageController do
 
     %{
       today: cal.is_today?,
+      today_paypal: cal.is_today_paypal?,
       seconds_until: cal.seconds_until,
       next_paydate: cal.next_real_paydate,
       last_paydate: cal.past_real_paydate,

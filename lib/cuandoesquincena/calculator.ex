@@ -11,7 +11,12 @@ defmodule Cuandoesquincena.Calculator do
     days_until == 0
   end
 
+  def is_today_paypal? do
+    days_until_paypal == 0
+  end
+
   def days_until, do: div seconds_until, @seconds_in_day
+  def days_until_paypal, do: div seconds_until_paypal, @seconds_in_day
 
   def weekends do
     Interval.new(from: past_real_paydate, until: next_real_paydate)
@@ -22,6 +27,10 @@ defmodule Cuandoesquincena.Calculator do
 
   def seconds_until do
      next_real_paydate |> Timex.to_datetime |> Timex.diff(Timex.local,  :seconds)
+  end
+
+  def seconds_until_paypal do
+    next_paypal_paydate |> Timex.to_datetime |> Timex.diff(Timex.local,  :seconds)
   end
 
   def last_canonical_paydate(%Date{day: day} = canonical) when day >= 15,
@@ -51,7 +60,7 @@ defmodule Cuandoesquincena.Calculator do
 
   def next_paypal_paydate do
     %Date{day: day, month: month, year: year} = next_real_paydate
-    %Date{day: day - @average_paypal_delay, month: month, year: year}
+    %Date{day: day - @average_paypal_delay, month: month, year: year} |> fix_workday
   end
 
   def past_real_paydate do

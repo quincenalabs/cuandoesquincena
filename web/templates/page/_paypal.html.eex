@@ -1,6 +1,6 @@
 <h2>¿Hoy pagan por PayPal?</h2>
 
-<%= if @calculator.today do %>
+<%= if @calculator.today_paypal do %>
   <h1 class="mock animated wobble">¡SI!</h1>
 <% else %>
   <h1 class="mock animated wobble">¡No!</h1>
