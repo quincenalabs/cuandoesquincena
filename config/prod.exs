@@ -65,7 +65,7 @@ config :cuandoesquincena, Cuandoesquincena.Repo,
   password: System.get_env("PGPASSWORD"),
   hostname: System.get_env("PGHOST"),
   pool_size: 10,
-  ssl: true
+  ssl: false
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
