@@ -60,8 +60,10 @@ config :phoenix, :stacktrace_depth, 20
 #
 config :cuandoesquincena, Cuandoesquincena.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: "cuandoesquincena_dev",
-  url: System.get_env("DATABASE_URL"),
+  database: System.get_env("PGDATABASE"),
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  hostname: System.get_env("PGHOST"),
   pool_size: 10,
   ssl: true
 
