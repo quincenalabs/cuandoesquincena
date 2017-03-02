@@ -9,7 +9,7 @@ defmodule Cuandoesquincena.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :cuandoesquincena, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt .well-known)
+    only: ~w(css OneSignalSDKUpdaterWorker.js OneSignalSDKWorker.js fonts images js favicon.ico robots.txt .well-known manifest.json)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
