@@ -19,7 +19,7 @@ exports.config = {
           "css/active_admin.css.css": ["web/static/vendor/active_admin.css.css"]
       },
       order: {
-  after: ["web/static/css/app.css"]
+          after: ["web/static/css/app.css"]
       }
     },
     templates: {
