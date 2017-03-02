@@ -3,21 +3,23 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: {
-	"js/app.js": /^(web\/static\/js)|(node_modules)/,
-	"js/ex_admin_common.js": ["web/static/vendor/ex_admin_common.js"],
-	"js/admin_lte2.js": ["web/static/vendor/admin_lte2.js"],
-	"js/jquery.min.js": ["web/static/vendor/jquery.min.js"],
-	"js/soon.min.js": ["web/static/vendor/soon.min.js"]
+          "js/app.js": /^(web\/static\/js)|(node_modules)/,
+          "js/ex_admin_common.js": ["web/static/vendor/ex_admin_common.js"],
+          "js/admin_lte2.js": ["web/static/vendor/admin_lte2.js"],
+          "js/jquery.min.js": ["web/static/vendor/jquery.min.js"],
+          "js/soon.min.js": ["web/static/vendor/soon.min.js"],
+          "OneSignalSDKUpdaterWorker.js" : ["web/static/OneSignalSDKUpdaterWorker.js"],
+          "OneSignalSDKWorker.js" : ["web/static/OneSignalSDKWorker.js"]
       }
     },
     stylesheets: {
       joinTo: {
-	"css/app.css": /^(web\/static\/css)/,
-	"css/admin_lte2.css": ["web/static/vendor/admin_lte2.css"],
-	"css/active_admin.css.css": ["web/static/vendor/active_admin.css.css"]
+          "css/app.css": /^(web\/static\/css)/,
+          "css/admin_lte2.css": ["web/static/vendor/admin_lte2.css"],
+          "css/active_admin.css.css": ["web/static/vendor/active_admin.css.css"]
       },
       order: {
-	after: ["web/static/css/app.css"]
+  after: ["web/static/css/app.css"]
       }
     },
     templates: {
