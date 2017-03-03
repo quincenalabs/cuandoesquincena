@@ -1,4 +1,49 @@
-brunch build --production
-mix phoenix.digest
+build_pack_dir=$(cd $(dirname $(dirname $0)); pwd)
+
+### Configure environment
+
+set -o errexit    # always exit on error
+set -o pipefail   # don't ignore exit codes when piping output
+unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
+
+
+### Configure directories
+
+mkdir -p $1 $2 $3 # Ensure dirs are present
+
+build_dir=$(cd $1 && pwd)
+cache_dir=$(cd $2 && pwd)
+env_dir=$(cd $3 && pwd)
+heroku_dir=$build_dir/.heroku
+
+source ${build_pack_dir}/lib/common.sh
+source ${build_pack_dir}/lib/build.sh
+
+
+head "Loading configuration and environment"
+load_previous_npm_node_versions
+load_config
+export_config_vars
+export_mix_env
+
+cached_node=$cache_dir/node-v$node_version-linux-x64.tar.gz
+
+head "Installing binaries"
+cleanup_cache
+download_node
+install_node
+install_npm
+if [ -f "$build_dir/yarn.lock" ]; then
+  install_yarn "$heroku_dir/yarn"
+fi
+
+head "Building dependencies"
+install_and_cache_deps
+
+compile
+
+head "Finalizing build"
+cache_versions
+
 rm -rf priv/static/manifest.json
 cp web/static/manifest.json priv/static
