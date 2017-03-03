@@ -9,7 +9,8 @@ exports.config = {
           "js/jquery.min.js": ["web/static/vendor/jquery.min.js"],
           "js/soon.min.js": ["web/static/vendor/soon.min.js"],
           "OneSignalSDKUpdaterWorker.js" : ["web/static/vendor/OneSignalSDKUpdaterWorker.js"],
-          "OneSignalSDKWorker.js" : ["web/static/vendor/OneSignalSDKWorker.js"]
+          "OneSignalSDKWorker.js" : ["web/static/vendor/OneSignalSDKWorker.js"],
+          "manifest.json" : ["web/static/manifest.json"]
       }
     },
     stylesheets: {
