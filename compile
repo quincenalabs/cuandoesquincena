@@ -1,8 +1,0 @@
-mix phoenix.digest
-
-rm -rf priv/static/manifest.json
-cp ./web/static/manifest.json ./priv/static
-cp ./web/static/manifest.json ./priv/static
-cp ./web/static/manifest.json ./priv/static
-cp ./web/static/manifest.json ./priv/static
-cp ./web/static/manifest.json ./priv/static
