@@ -12,7 +12,7 @@ exports.config = {
           "OneSignalSDKWorker.js" : ["web/static/vendor/OneSignalSDKWorker.js"]
       }
     },
-    Stylesheets: {
+    stylesheets: {
       joinTo: {
           "css/app.css": /^(web\/static\/css)/,
           "css/admin_lte2.css": ["web/static/vendor/admin_lte2.css"],
