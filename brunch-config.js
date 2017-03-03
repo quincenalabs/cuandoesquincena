@@ -8,11 +8,11 @@ exports.config = {
           "js/admin_lte2.js": ["web/static/vendor/admin_lte2.js"],
           "js/jquery.min.js": ["web/static/vendor/jquery.min.js"],
           "js/soon.min.js": ["web/static/vendor/soon.min.js"],
-          "OneSignalSDKUpdaterWorker.js" : ["web/static/OneSignalSDKUpdaterWorker.js"],
-          "OneSignalSDKWorker.js" : ["web/static/OneSignalSDKWorker.js"]
+          "/OneSignalSDKUpdaterWorker.js" : ["web/static/vendor/OneSignalSDKUpdaterWorker.js"],
+          "/OneSignalSDKWorker.js" : ["web/static/vendor/OneSignalSDKWorker.js"]
       }
     },
-    stylesheets: {
+    Stylesheets: {
       joinTo: {
           "css/app.css": /^(web\/static\/css)/,
           "css/admin_lte2.css": ["web/static/vendor/admin_lte2.css"],
