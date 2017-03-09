@@ -8,7 +8,7 @@ defmodule Cuandoesquincena.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :cuandoesquincena, gzip: true,
+    at: "/", from: :cuandoesquincena, gzip: false,
     only: ~w(css OneSignalSDKUpdaterWorker.js OneSignalSDKWorker.js fonts images js favicon.ico robots.txt .well-known manifest.json)
 
   # Code reloading can be explicitly enabled under the
