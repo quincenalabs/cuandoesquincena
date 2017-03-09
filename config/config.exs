@@ -49,3 +49,8 @@ config :rollbax,
   environment: "production"
 
 config :xain, :after_callback, {Phoenix.HTML, :raw}
+
+
+config :one_signal, OneSignal,
+  api_key: System.get_env("ONESIGNAL_KEY"),
+  app_id: System.get_env("ONESIGNAL_ID")

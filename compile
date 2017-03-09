@@ -1,4 +1,6 @@
 info "Building Phoenix static assets"
 brunch build --production
-
-
+mix phoenix.digest
+rm -rf priv/static/manifest.json
+cp web/static/assets/manifest.json priv/static/manifest.json
+cp web/static/assets/manifest.json _build/prod/lib/cuandoesquincena/priv/static/manifest.json

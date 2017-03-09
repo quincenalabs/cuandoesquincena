@@ -14,9 +14,8 @@ use Mix.Config
 config :cuandoesquincena, Cuandoesquincena.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "cuandoesquincena.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
-
+#  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 
@@ -60,10 +59,15 @@ config :phoenix, :stacktrace_depth, 20
 #
 config :cuandoesquincena, Cuandoesquincena.Repo,
   adapter: Ecto.Adapters.Postgres,
-
   url: System.get_env("DATABASE_URL"),
   pool_size: 10,
   ssl: false
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
+
+
+config :quantum, :cuandoesquincena,
+  cron: [
+    "0 22 * * *": &Cuandoesquincena.Notify.daily_summary/0
+  ]

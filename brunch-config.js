@@ -7,9 +7,7 @@ exports.config = {
           "js/ex_admin_common.js": ["web/static/vendor/ex_admin_common.js"],
           "js/admin_lte2.js": ["web/static/vendor/admin_lte2.js"],
           "js/jquery.min.js": ["web/static/vendor/jquery.min.js"],
-          "js/soon.min.js": ["web/static/vendor/soon.min.js"],
-          "OneSignalSDKUpdaterWorker.js" : ["web/static/vendor/OneSignalSDKUpdaterWorker.js"],
-          "OneSignalSDKWorker.js" : ["web/static/vendor/OneSignalSDKWorker.js"]
+          "js/soon.min.js": ["web/static/vendor/soon.min.js"]
       }
     },
     stylesheets: {

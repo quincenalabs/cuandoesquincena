@@ -18,7 +18,7 @@ defmodule Cuandoesquincena.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Cuandoesquincena, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:one_signal, :quantum, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
 		    :phoenix_ecto, :postgrex, :tzdata, :timex, :phoenix_live_reload, :rollbax]]
   end
 
@@ -30,21 +30,22 @@ defmodule Cuandoesquincena.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [
-      {:phoenix, "~> 1.2.1"},
-      {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0"},
-      {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
-      {:tzdata, "~> 0.5.7", override: true},
-      {:timex, "~> 3.0"},
-      {:exrm, "~> 1.0"},
-      {:comeonin, "~> 1.0"},
-      {:rollbax, "~> 0.6"},
-      {:ex_admin, github: "smpallen99/ex_admin"}
+    [{:one_signal, github: "netmask/one_signal"},
+     {:phoenix, "~> 1.2.1"},
+     {:phoenix_pubsub, "~> 1.0"},
+     {:phoenix_ecto, "~> 3.0"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_html, "~> 2.6"},
+     {:phoenix_live_reload, "~> 1.0"},
+     {:gettext, "~> 0.11"},
+     {:cowboy, "~> 1.0"},
+     {:tzdata, "~> 0.5.7", override: true},
+     {:timex, "~> 3.0"},
+     {:exrm, "~> 1.0"},
+     {:comeonin, "~> 1.0"},
+     {:rollbax, "~> 0.6"},
+     {:quantum, ">= 1.9.0"},
+     {:ex_admin, github: "smpallen99/ex_admin"}
     ]
   end
 
