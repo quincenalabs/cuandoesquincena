@@ -4,17 +4,17 @@
     <h1 class="mock animated wobble">¡SI!</h1>
   <% else %>
     <h1 class="mock animated wobble">¡No!</h1>
-    <div class="silly-message" id="silly-message">silly me</div>
+    <div class="silly-message" id="silly-message"></div>
     <h4>La siguiente quincena es:</h4>
-    <h1 class="next-date"><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %> </h1>
+
+    <h1 class="next-date" data-date="<%= @calculator.next_paydate |> Timex.format!("{ISO:Extended}") %>"><%= @calculator.next_paydate |> Timex.format!("{D}/{0M}/{YYYY}") %> </h1>
   <%end%>
 
   <style type="text/css">
   </style>
 
 
-  <div class="soon" id="my-soon-counter"
-       data-due="<%= @calculator.next_paydate %>"
+  <div  id="the-counter"
        data-layout="inline label-uppercase"
        data-format="w,d,h,m,s"
        data-labels-days="días"

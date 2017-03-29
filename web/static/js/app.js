@@ -12,43 +12,60 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 
+
 import "phoenix_html";
+import jQuery from "jquery";
 
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
+jQuery(document).ready(()=>{
+    
+    // Import local files
+    //
+    // Local files can be imported directly using relative
+    // paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
-
-
-let message = document.getElementById("silly-message");
-
-function pollMessage() {
-  var xmlhttp = new XMLHttpRequest();
-
-  message.className = `silly-message animated fadeOut`;
-
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-      if (xmlhttp.status == 200) {
-	let payload = JSON.parse(xmlhttp.responseText);
+    // import socket from "./socket"
 
 
-	setTimeout(function(){
-	  message.className = `silly-message animated fadeIn`;
-	  message.innerText = payload.data.message;
-	}, 1000);
-      }
+    let message = document.getElementById("silly-message");
+
+    function pollMessage() {
+        var xmlhttp = new XMLHttpRequest();
+
+        message.className = `silly-message animated fadeOut`;
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                if (xmlhttp.status == 200) {
+	                  let payload = JSON.parse(xmlhttp.responseText);
+
+
+	                  setTimeout(function(){
+	                      message.className = `silly-message animated fadeIn`;
+	                      message.innerText = payload.data.message;
+	                  }, 1000);
+                }
+            }
+        };
+
+        xmlhttp.open("GET", "/silly", true);
+        xmlhttp.send();
     }
-  };
-
-  xmlhttp.open("GET", "/silly", true);
-  xmlhttp.send();
-}
 
 
-setInterval(pollMessage, 10000);
+    setInterval(pollMessage, 10000);
 
-pollMessage();
+    pollMessage();
+    
+    Soon.create(document.getElementById('the-counter'),{
+        "due" : jQuery('.next-date').data('date'),
+        "layout": "inline label-uppercase",
+        "format": "w,d,h,m,s",
+        "labelsDays": "días",
+        "labelsHours": "horas",
+        "labelsMinutes": "minutos",
+        "labelsSeconds": "segundos",
+        "labelsWeeks": "semanas",
+        "face": "flip color-light shadow-soft fast corners-round"
+    });
+});
