@@ -8,8 +8,6 @@ defmodule Cuandoesquincena do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
-      supervisor(Cuandoesquincena.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Cuandoesquincena.Endpoint, []),
       # Start your own worker by calling: Cuandoesquincena.Worker.start_link(arg1, arg2, arg3)

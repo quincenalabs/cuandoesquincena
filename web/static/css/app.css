@@ -32,8 +32,8 @@ background-color: #666666;
 #my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;}
 
 
-.silly-message{
-    font-size:72px;
+.silly-message, .silly-message * {
+    font-size:72px !important;
 }
 
 .jumbotron{

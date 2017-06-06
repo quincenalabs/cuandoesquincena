@@ -19,13 +19,6 @@ import jQuery from "jquery";
 
 jQuery(document).ready(()=>{
     
-    // Import local files
-    //
-    // Local files can be imported directly using relative
-    // paths "./socket" or full ones "web/static/js/socket".
-
-    // import socket from "./socket"
-
 
     let message = document.getElementById("silly-message");
 
@@ -41,8 +34,8 @@ jQuery(document).ready(()=>{
 
 
 	                  setTimeout(function(){
-	                      message.className = `silly-message animated fadeIn`;
-	                      message.innerText = payload.data.message;
+	                      message.innerHTML = payload.data.message;
+                        message.className = `silly-message animated fadeIn`;
 	                  }, 1000);
                 }
             }

@@ -19,7 +19,7 @@ defmodule Cuandoesquincena.Mixfile do
   def application do
     [mod: {Cuandoesquincena, []},
      applications: [:one_signal, :quantum, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-		    :phoenix_ecto, :postgrex, :tzdata, :timex, :phoenix_live_reload, :rollbax]]
+		    :tzdata, :timex, :phoenix_live_reload, :rollbax]]
   end
 
   # Specifies which paths to compile per environment.
@@ -45,7 +45,7 @@ defmodule Cuandoesquincena.Mixfile do
      {:comeonin, "~> 1.0"},
      {:rollbax, "~> 0.6"},
      {:quantum, ">= 1.9.0"},
-     {:ex_admin, github: "smpallen99/ex_admin"}
+     { :earmark, "~> 1.0.0" }
     ]
   end
 

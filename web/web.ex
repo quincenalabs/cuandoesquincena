@@ -30,7 +30,6 @@ defmodule Cuandoesquincena.Web do
     quote do
       use Phoenix.Controller
 
-      alias Cuandoesquincena.Repo
       import Ecto
       import Ecto.Query
 
@@ -52,7 +51,6 @@ defmodule Cuandoesquincena.Web do
       import Cuandoesquincena.Router.Helpers
       import Cuandoesquincena.ErrorHelpers
       import Cuandoesquincena.Gettext
-      import Cuandoesquincena.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 
@@ -66,7 +64,6 @@ defmodule Cuandoesquincena.Web do
     quote do
       use Phoenix.Channel
 
-      alias Cuandoesquincena.Repo
       import Ecto
       import Ecto.Query
       import Cuandoesquincena.Gettext
