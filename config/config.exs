@@ -15,7 +15,7 @@ config :cuandoesquincena, Cuandoesquincena.Endpoint,
   secret_key_base: "nfjz7WMWI1avXk3Q0URGMd8gcNtQpc/ZV4P4bOkquTYTz877z/b8JlCvdwWeoZyr",
   render_errors: [view: Cuandoesquincena.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Cuandoesquincena.PubSub,
-	   adapter: Phoenix.PubSub.PG2]
+     adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
