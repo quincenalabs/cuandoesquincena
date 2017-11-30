@@ -4,27 +4,5 @@ run.config:
   extra_packages:
     - git
 
-  # we need nodejs in development
-  # ensure inotify exists for hot-code reloading
-  dev_packages:
-    - nodejs
-    - inotify-tools
-
-  # cache node_modules
-  cache_dirs:
-    - node_modules
-
-  # add node_module bins to the $PATH
-  extra_path_dirs:
-    - node_modules/.bin
-
-  # enable the filesystem watcher
-  fs_watch: true
-
-deploy.config:
-  # generate the static assets digest
-  extra_steps:
-    - mix phoenix.digest
-
 web.main:
   start: node-start mix phoenix.server
