@@ -18,7 +18,7 @@ defmodule Cuandoesquincena.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Cuandoesquincena, []},
-     applications: [:one_signal, :quantum, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:quantum, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
         :tzdata, :timex, :phoenix_live_reload, :rollbax]]
   end
 
@@ -30,8 +30,7 @@ defmodule Cuandoesquincena.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:one_signal, github: "netmask/one_signal"},
-     {:phoenix, "~> 1.2.1"},
+    [     {:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
      {:phoenix_html, "~> 2.6"},

@@ -37,7 +37,3 @@ import_config "#{Mix.env}.exs"
 config :rollbax,
   access_token: "b1c0c60e4aef43e4a9bdefe521ba18b7",
   environment: "production"
-
-config :one_signal, OneSignal,
-  api_key: System.get_env("ONESIGNAL_KEY"),
-  app_id: System.get_env("ONESIGNAL_ID")
