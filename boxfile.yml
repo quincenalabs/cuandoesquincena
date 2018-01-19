@@ -25,4 +25,4 @@ deploy.config:
     - mix phoenix.digest
 
 web.main:
-  start: node-start mix phoenix.server
+  start: node-start mix phx.server
